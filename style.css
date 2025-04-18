@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "PPSupply-Mono-Regular"; /*a name to be used later*/
+  src: url("fonts/PPSupplyMono-Regular.otf"); /*URL to font*/
+}
+
+body {
+  background-color: #1e2d2c;
+  font-family: "PPSupply-Mono-Regular";
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #d3fb95;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+  text-align: right;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #d3fb95;
+  padding: 16px;
+  
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #d3fb95;
+  border-bottom: 0cap;
+  padding: 16px;
+}
+
+.btn-holder {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid #d3fb95;
+  padding: 16px;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+
+.btn-num {
+  background-color: #1e2d2c00;
+  border: 3px solid #d3fb95;
+  color: #d3fb95;
+  cursor: pointer;
+  padding: 8px 16px;
+  min-width: 60px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+
+/* .btn-num {
+  background: transparent;
+  border: none;
+  color: inherit;
+ 
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0px;
+  width: 9.5px;
+}
+
+/*.input{
+ background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0px;
+  width: 164px;
+  font-family: "PPSupply-Mono-Regular";
+  font-size: 16px;
+  line-height: 1.5;
+}
+.btn-num:hover {
+  background-color: rgba(255, 255, 0, 0.15);
+}
+/*.ascii-box {
+  font-family: "PPSupply-Mono-Regular";
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/*.div-style{
+    display: flex;
+    flex-direction: column;
+}*/

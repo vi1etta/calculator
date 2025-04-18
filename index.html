@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASCII-style calculator</title>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div class="container">
+      <div class="display-container">
+        <p class="display-main-text" id="dispayText">Put a number</p>
+      </div>
+      <div class="btn-holder">
+        <div class="row"> <!--row 1-->
+          <button type="button" class="btn-num" data-val="7">7</button>
+          <button type="button" class="btn-num" data-val="4">4</button>
+          <button type="button" class="btn-num" data-val="1">1</button>
+          <button type="button" class="btn-num" data-val="AC">AC</button>
+        </div>
+        <div class="row"> <!--row 2-->
+          <button type="button" class="btn-num" data-val="8">8</button>
+          <button type="button" class="btn-num" data-val="5">5</button>
+          <button type="button" class="btn-num" data-val="2">2</button>
+          <button type="button" class="btn-num" data-val="0">0</button>
+        </div>
+
+        <div class="row"> <!--row 1-->
+          <button type="button" class="btn-num" data-val="7">9</button>
+          <button type="button" class="btn-num" data-val="8">6</button>
+          <button type="button" class="btn-num" data-val="9">3</button>
+          <button type="button" class="btn-num" data-val="=">=</button>
+        </div>
+
+        <div class="row">
+          <button type="button" class="btn-num" data-val="/">÷</button>
+          <button type="button" class="btn-num" data-val="*">×</button>
+          <button type="button" class="btn-num" data-val="-">-</button>
+          <button type="button" class="btn-num" data-val="+">+</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--<div class="div-style">
+      <pre class="ascii-box">
+        +---------------------------------+
+        |        Simple calculator        |
+        +---------------------------------+
+        </pre>
+            <pre class="ascii-box">
+             ______________________
+            |  _________________  |
+            | |<input 
+            type="text"
+            id="name"
+             name=
+             "name"class="input"
+             />| |
+            | |_________________| |</pre>  
+            <pre class="ascii-box">      
+            <span class="text">|  ___ ___ ___   ___  |</span>
+            | | <button type="button" class="btn-num" data-val="7">7</button> | <button type="button" class="btn-num" data-val="8">8</button> | <button type="button" class="btn-num" data-val="9">9</button> | | <button type="button" class="btn-num" data-val="/">÷</button> | |          
+            | |___|___|___| |___| |
+            | | <button type="button" class="btn-num" data-val="4">4</button> | <button type="button" class="btn-num" data-val="5">5</button> | <button type="button" class="btn-num" data-val="6">6</button> | | <button type="button" class="btn-num" data-val="*">×</button> | |
+            | |___|___|___| |___| |
+            | | <button type="button" class="btn-num" data-val="1">1</button> | <button type="button" class="btn-num" data-val="2">2</button> | <button type="button" class="btn-num" data-val="3">3</button> | | <button type="button" class="btn-num" data-val="-">-</button> | |
+            | |___|___|___| |___| |
+            | | <button type="button" class="btn-num" data-val="C">C</button> | <button type="button" class="btn-num" data-val="0">0</button> | <button type="button" class="btn-num" data-val="=">=</button> | | <button type="button" class="btn-num" data-val="+">+</button> | |
+            | |___|___|___| |___| |
+             _____________________  </pre>
+    </div>-->
