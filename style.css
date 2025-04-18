@@ -12,23 +12,31 @@ body {
   align-items: center;
   justify-content: center;
   color: #d3fb95;
-  margin: 0px;
+  margin: 24px;
 }
 
 h1 {
   font-size: 24px;
+  margin: 0px;
+}
+h2 {
+  font-size: 20px;
+  text-align: right;
+  margin: 0px;
 }
 
-p {
-  font-size: 18px;
+h4 {
+  font-size: 14px;
   text-align: right;
+  margin: 0px;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   border: 3px solid #d3fb95;
   padding: 16px;
-  
+  margin-top: 32px;
 }
 
 .display-container {
@@ -37,6 +45,7 @@ p {
   border: 3px solid #d3fb95;
   border-bottom: 0cap;
   padding: 16px;
+  gap: 8px;
 }
 
 .btn-holder {
@@ -49,6 +58,7 @@ p {
 }
 
 .btn-num {
+  font-family: "PPSupply-Mono-Regular";
   background-color: #1e2d2c00;
   border: 3px solid #d3fb95;
   color: #d3fb95;
@@ -57,46 +67,13 @@ p {
   min-width: 60px;
 }
 
+.btn-num:hover {
+  border: 3px solid #fb9595;
+}
+
 .row {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
   column-gap: 8px;
 }
-
-/* .btn-num {
-  background: transparent;
-  border: none;
-  color: inherit;
- 
-  font-size: inherit;
-  cursor: pointer;
-  padding: 0px;
-  width: 9.5px;
-}
-
-/*.input{
- background: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 0px;
-  width: 164px;
-  font-family: "PPSupply-Mono-Regular";
-  font-size: 16px;
-  line-height: 1.5;
-}
-.btn-num:hover {
-  background-color: rgba(255, 255, 0, 0.15);
-}
-/*.ascii-box {
-  font-family: "PPSupply-Mono-Regular";
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/*.div-style{
-    display: flex;
-    flex-direction: column;
-}*/
