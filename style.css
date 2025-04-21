@@ -42,7 +42,7 @@ h4 {
   height: 300px;
   pointer-events: none; /* So it doesn't block hover */
   z-index: -1; /* Make sure it's under the calculator */
-  opacity: 100;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 

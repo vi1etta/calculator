@@ -15,7 +15,7 @@ resetBtn.addEventListener("mouseleave", hideVideo);
 function showVideo() {
   videoWrapper.style.opacity = 1;
   video.play();
-  console.log("Hi!")
+  console.log("Hi!");
 }
 // Function to hide video
 function hideVideo() {
@@ -23,8 +23,6 @@ function hideVideo() {
   video.pause();
   video.currentTime = 0;
 }
-
-
 
 let a = "";
 let b = "";
@@ -107,3 +105,25 @@ function operate(aValue, signValue, bValue) {
   console.log("It's work!");
 }
 console.log(result);
+
+const successSound = document.querySelector("#successSound");
+const hoverSound = document.querySelector("#hoverSound");
+
+mainContainer.addEventListener("click", (e) => {
+  const successSounds = e.target.id;
+  const btnIdEqual = ["equal"];
+  if (btnIdEqual.includes(successSounds)) {
+    successSound.currentTime = 0; // rewind to start
+    successSound.play();
+    console.log("hi!")
+  }
+});
+
+mainContainer.addEventListener("mouseover", (e) => {
+  const btnClicked = e.target.id;
+  const btnId = ["digit", "math", "equal"];
+  if (btnId.includes(btnClicked)) {
+    hoverSound.currentTime = 0; // rewind to start
+    hoverSound.play();
+  }
+});
