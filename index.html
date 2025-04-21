@@ -9,38 +9,42 @@
   </head>
   <body>
     <h1>Calculator</h1>
+    <div id="video-wrapper">
+      <video id="hover-video" src="img/waving creature.mp4" muted loop></video>
+    </div>
     <div class="container">
       <div class="display-container">
-        <h4 class="display-expression" id="dispayExpression">4+2</h4>
         <h2 class="display-main-text" id="dispayText">Put a number</h2>
-       
       </div>
       <div class="btn-holder">
-        <div class="row"> <!--row 1-->
-          <button type="button" class="btn-num" id="digit">7</button>
-          <button type="button" class="btn-num"id="digit">4</button>
-          <button type="button" class="btn-num" id="digit">1</button>
-          <button type="button" class="btn-num" id="clearBtn">AC</button>
+        <div class="row">
+          <!--row 1-->
+          <button type="button" id="digit">7</button>
+          <button type="button" id="digit">4</button>
+          <button type="button" id="digit">1</button>
+          <button type="button" id="clearBtn">AC</button>
         </div>
-        <div class="row"> <!--row 2-->
-          <button type="button" class="btn-num" id="digit">8</button>
-          <button type="button" class="btn-num" id="digit">5</button>
-          <button type="button" class="btn-num" id="digit">2</button>
-          <button type="button" class="btn-num" id="digit">0</button>
-        </div>
-
-        <div class="row"> <!--row 3-->
-          <button type="button" class="btn-num" id="digit">9</button>
-          <button type="button" class="btn-num" id="digit">6</button>
-          <button type="button" class="btn-num" id="digit">3</button>
-          <button type="button" class="btn-num"  id="equal">=</button>
+        <div class="row">
+          <!--row 2-->
+          <button type="button" id="digit">8</button>
+          <button type="button" id="digit">5</button>
+          <button type="button" id="digit">2</button>
+          <button type="button" id="digit">0</button>
         </div>
 
         <div class="row">
-          <button type="button" class="btn-num" id="math">÷</button>
-          <button type="button" class="btn-num" id="math">×</button>
-          <button type="button" class="btn-num" id="math">-</button>
-          <button type="button" class="btn-num" id="math">+</button>
+          <!--row 3-->
+          <button type="button" id="digit">9</button>
+          <button type="button" id="digit">6</button>
+          <button type="button" id="digit">3</button>
+          <button type="button" id="equal">=</button>
+        </div>
+
+        <div class="row">
+          <button type="button" id="math">÷</button>
+          <button type="button" id="math">×</button>
+          <button type="button" id="math">-</button>
+          <button type="button" id="math">+</button>
         </div>
       </div>
     </div>

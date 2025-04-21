@@ -5,13 +5,14 @@
 
 body {
   background-color: #1e2d2c;
+  background-image: url(img/bg.svg);
   font-family: "PPSupply-Mono-Regular";
   font-size: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #d3fb95;
+  color: #5892a7;
   margin: 24px;
 }
 
@@ -23,6 +24,7 @@ h2 {
   font-size: 20px;
   text-align: right;
   margin: 0px;
+  color: #5892a7;
 }
 
 h4 {
@@ -31,44 +33,138 @@ h4 {
   margin: 0px;
 }
 
+#hover-video {
+  position: absolute;
+  top: 150px;
+  left: 700px;
+  rotate: z 35deg;
+  width: 300px;
+  height: 300px;
+  pointer-events: none; /* So it doesn't block hover */
+  z-index: -1; /* Make sure it's under the calculator */
+  opacity: 100;
+  transition: opacity 0.3s ease;
+}
+
+#hover-video video {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
 .container {
   display: flex;
   flex-direction: column;
-  border: 3px solid #d3fb95;
-  padding: 16px;
+  gap: 24px;
+  border-radius: 42px;
+  border: 2px solid #c8b9cb;
+  box-shadow: inset -8px -8px 0 0 #e2c9d8, inset 5px 5px 0 0 #fffeff,
+    -2px 2px 0 0 #c8b9cb, 2px 2px 0 0 #c8b9cb;
+  padding: 32px;
   margin-top: 32px;
+  background-color: #fbe4f2;
 }
 
 .display-container {
   display: flex;
   flex-direction: column;
-  border: 3px solid #d3fb95;
-  border-bottom: 0cap;
-  padding: 16px;
+  background-color: #fff7bd;
+  border: 3px solid #cfcaa1;
+  border-radius: 16px;
+  padding: 24px;
   gap: 8px;
+  box-shadow: inset 4px 4px 0 0 #cec8a25b, inset -4px -4px 0 0 #fffdeb9f;
 }
 
 .btn-holder {
   display: flex;
   flex-direction: row;
-  border: 3px solid #d3fb95;
-  padding: 16px;
-  row-gap: 8px;
-  column-gap: 8px;
+  padding: 0px;
+  column-gap: 10px;
 }
 
-.btn-num {
+#digit {
+  /*done*/
   font-family: "PPSupply-Mono-Regular";
-  background-color: #1e2d2c00;
-  border: 3px solid #d3fb95;
-  color: #d3fb95;
+
+  box-sizing: border-box;
+  border: 1px solid #c8b9cb;
+  background-color: #fbe4f2;
+  box-shadow: inset -4px -4px 0 0 #e2c9d8, inset 4px 4px 0 0 #fffeff,
+    -2px 2px 0 0 #c8b9cb, 2px 2px 0 0 #c8b9cb;
   cursor: pointer;
   padding: 8px 16px;
   min-width: 60px;
+  min-height: 60px;
+  font-size: 20px;
+  color: white;
+  border-radius: 16px;
+  text-shadow: 2px 2px 0 #c8b9cb; /* Shadow behind the text */
 }
 
-.btn-num:hover {
-  border: 3px solid #fb9595;
+#digit:hover {
+  /*done*/
+  background-color: #f7e0ee;
+  border: 1px solid #c8b9cb;
+  box-shadow: inset -2px -2px 0 0 #e2c9d800, inset 4px 4px 0 0 #e2c9d89d,
+    -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #fffeff;
+  text-shadow: none;
+}
+
+#math,
+#equal {
+  font-family: "PPSupply-Mono-Regular";
+  background-color: #e4f8fb;
+  box-sizing: border-box;
+  border: 1px solid #c8b9cb;
+
+  box-shadow: inset -4px -4px 0 0 #c1d9dd, inset 4px 4px 0 0 #feffff,
+    -2px 2px 0 0 #c8b9cb, 2px 2px 0 0 #c8b9cb;
+  cursor: pointer;
+  padding: 8px 16px;
+  min-width: 60px;
+  min-height: 60px;
+  font-size: 20px;
+  color: white;
+  border-radius: 16px;
+
+  text-shadow: 2px 2px 0 #c8b9cb; /* Shadow behind the text */
+}
+
+#math:hover,
+#equal:hover {
+  /*done*/
+  background-color: #ddf1f4;
+  border: 1px solid #c8b9cb;
+  box-shadow: inset -2px -2px 0 0 #c1d9dd00, inset 4px 4px 0 0 #c1d9dd98,
+    -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #feffff;
+  text-shadow: none;
+}
+
+#clearBtn {
+  font-family: "PPSupply-Mono-Regular";
+  background-color: #e4fbe6;
+  box-sizing: border-box;
+  border: 1px solid #c8b9cb;
+  box-shadow: inset -4px -4px 0 0 #c6dfc8, inset 4px 4px 0 0 #feffff,
+    -2px 2px 0 0 #c8b9cb, 2px 2px 0 0 #c8b9cb;
+  cursor: pointer;
+  padding: 8px 16px;
+  min-width: 60px;
+  min-height: 60px;
+  font-size: 20px;
+  color: white;
+  border-radius: 16px;
+
+  text-shadow: 2px 2px 0 #c6dfc8; /* Shadow behind the text */
+}
+
+#clearBtn:hover {
+  /*done*/
+  background-color: #dbf2dd;
+  border: 1px solid #c8b9cb;
+  box-shadow: inset -2px -2px 0 0 #c1d9dd00, inset 4px 4px 0 0 #c6dfc8bc,
+    -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #feffff;
+  text-shadow: none;
 }
 
 .row {
@@ -76,4 +172,5 @@ h4 {
   flex-direction: column;
   row-gap: 8px;
   column-gap: 8px;
+  gap: 8px;
 }

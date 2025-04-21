@@ -3,6 +3,29 @@ mainContainer.addEventListener("click", populateValue);
 
 const dispayText = document.querySelector("#dispayText");
 
+const videoWrapper = document.querySelector("#video-wrapper");
+const video = document.querySelector("#hover-video");
+
+const resetBtn = document.querySelector("#clearBtn");
+
+resetBtn.addEventListener("mouseenter", showVideo);
+resetBtn.addEventListener("mouseleave", hideVideo);
+
+// Function to show video
+function showVideo() {
+  videoWrapper.style.opacity = 1;
+  video.play();
+  console.log("Hi!")
+}
+// Function to hide video
+function hideVideo() {
+  videoWrapper.style.opacity = 0;
+  video.pause();
+  video.currentTime = 0;
+}
+
+
+
 let a = "";
 let b = "";
 
@@ -46,35 +69,41 @@ function populateValue(e) {
   }
 }
 
-function operate(a, sign, b) {
-  switch (sign) {
+function operate(aValue, signValue, bValue) {
+  switch (signValue) {
     case "÷":
-      result = Number(a) / Number(b);
+      result = Number(aValue) / Number(bValue);
       dispayText.textContent = result;
+      a = result;
+      b = "";
+      sign = "";
       break;
 
     case "+":
-      result = Number(a) + Number(b);
+      result = Number(aValue) + Number(bValue);
       dispayText.textContent = result;
+      a = result;
+      b = "";
+      sign = "";
       console.log(result);
       break;
     case "×":
-      result = Number(a) * Number(b);
+      result = Number(aValue) * Number(bValue);
       dispayText.textContent = result;
+      a = result;
+      b = "";
+      sign = "";
       console.log(result);
       break;
     case "-":
-      result = Number(a) - Number(b);
+      result = Number(aValue) - Number(bValue);
       dispayText.textContent = result;
+      a = result;
+      b = "";
+      sign = "";
       console.log(result);
       break;
   }
   console.log("It's work!");
 }
 console.log(result);
-/*мне нужно , что бы система продолжала записывать число а до тех пор, пока юзер
-не кликнет мат знак или равно. далее если это не знак равно, то система должна
-начать записывать аргумент б, и это так же, до тех пор, пока юзер не нажмет равно. 
-далее два аргумента передаются на мат функцию 
-
-для обозначение мат знаков, я могу доавбить им айдишник и смотреть на него. */
