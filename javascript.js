@@ -33,15 +33,14 @@ function populateValue(e) {
     e.target.classList.contains("digit") &&
     aIsCompleted === false &&
     result === undefined &&
-    sign === "" &&
-    b === ""
+    sign === "" 
   ) {
     a += e.target.textContent;
     dispayText.textContent = a;
-    console.log(a);
+    console.log("this is " , a);
     playSound(e.target.className);
   }
-  if (e.target.classList.contains("math")) {
+  if (e.target.classList.contains("math") && sign==="")  {
     aIsCompleted = true;
     sign = e.target.textContent;
     dispayText.textContent = a + sign;
@@ -51,8 +50,7 @@ function populateValue(e) {
   if (
     e.target.classList.contains("digit") &&
     aIsCompleted === true &&
-    sign !== "" &&
-    b === ""
+    sign !== "" 
   ) {
     b += e.target.textContent;
     dispayText.textContent = a + sign + b;
@@ -78,7 +76,7 @@ function populateValue(e) {
     b = "";
     sign = "";
     aIsCompleted = false;
-    result;
+    result= undefined;
     dispayText.textContent = "Put a number";
     playSound(e.target.className);
   }
@@ -99,13 +97,19 @@ function populateValue(e) {
   if (
     e.target.classList.contains("math") &&
     a != "" &&
-    result === undefined &&
     b != ""
   ) {
     showSnackbar("Only 2 values at one operation");
-    b = "";
+    
     playSound(e.target.className);
   }
+  if ( e.target.classList.contains("math") && result!=undefined && a===""){
+    a=result;
+    b="";
+    dispayText.textContent = a+sign+b;
+    console.log("this is the case")
+  }
+  
 }
 
 function operate(firstOperand, operator, secondOperand) {
