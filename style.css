@@ -33,24 +33,7 @@ h4 {
   margin: 0px;
 }
 
-#hover-video {
-  position: absolute;
-  top: 150px;
-  left: 700px;
-  rotate: z 35deg;
-  width: 300px;
-  height: 300px;
-  pointer-events: none; /* So it doesn't block hover */
-  z-index: -1; /* Make sure it's under the calculator */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-#hover-video video {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-}
 .container {
   display: flex;
   flex-direction: column;
@@ -72,7 +55,7 @@ h4 {
   border-radius: 16px;
   padding: 24px;
   gap: 8px;
-  box-shadow: inset 4px 4px 0 0 #cec8a25b, inset -4px -4px 0 0 #fffdeb9f;
+  box-shadow: inset 4px 4px 0 0 #cec8a25b, inset -4px -4px 0 0 #f8f7ed;
 }
 
 .btn-holder {
@@ -85,7 +68,6 @@ h4 {
 #digit {
   /*done*/
   font-family: "PPSupply-Mono-Regular";
-
   box-sizing: border-box;
   border: 1px solid #c8b9cb;
   background-color: #fbe4f2;
@@ -99,6 +81,8 @@ h4 {
   color: white;
   border-radius: 16px;
   text-shadow: 2px 2px 0 #c8b9cb; /* Shadow behind the text */
+  transition: all 0.2s ease-in-out;
+  
 }
 
 #digit:hover {
@@ -108,6 +92,7 @@ h4 {
   box-shadow: inset -2px -2px 0 0 #e2c9d800, inset 4px 4px 0 0 #e2c9d89d,
     -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #fffeff;
   text-shadow: none;
+  transform: scale(0.95);
 }
 
 #math,
@@ -126,18 +111,18 @@ h4 {
   font-size: 20px;
   color: white;
   border-radius: 16px;
-
-  text-shadow: 2px 2px 0 #c8b9cb; /* Shadow behind the text */
+  text-shadow: 2px 2px 0 #C1D9DD; /* Shadow behind the text */
+  transition: all 0.2s ease-in-out;
 }
 
 #math:hover,
 #equal:hover {
-  /*done*/
   background-color: #ddf1f4;
   border: 1px solid #c8b9cb;
   box-shadow: inset -2px -2px 0 0 #c1d9dd00, inset 4px 4px 0 0 #c1d9dd98,
     -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #feffff;
   text-shadow: none;
+  transform: scale(0.95);
 }
 
 #clearBtn {
@@ -154,17 +139,17 @@ h4 {
   font-size: 20px;
   color: white;
   border-radius: 16px;
-
   text-shadow: 2px 2px 0 #c6dfc8; /* Shadow behind the text */
+  transition: all 0.2s ease-in-out;
 }
 
 #clearBtn:hover {
-  /*done*/
   background-color: #dbf2dd;
   border: 1px solid #c8b9cb;
   box-shadow: inset -2px -2px 0 0 #c1d9dd00, inset 4px 4px 0 0 #c6dfc8bc,
     -2px 2px 0 0 #c8b9cb, inset -2px -2px 0 0 #feffff;
   text-shadow: none;
+  transform: scale(0.95);
 }
 
 .row {
@@ -173,4 +158,51 @@ h4 {
   row-gap: 8px;
   column-gap: 8px;
   gap: 8px;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #E4FBE6; /* Black background color */
+  color: #5892A7; /* White text color */
+  font-size: 18px;
+  text-align: center; /* Centered text */
+  border-radius: 8px; /* Rounded borders */
+  padding: 24px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left:50%; /* Center the snackbar */
+  bottom: 42px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
