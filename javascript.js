@@ -48,7 +48,12 @@ function populateValue(e) {
     console.log(sign);
     playSound(e.target.className);
   }
-  if (e.target.classList.contains("digit") && aIsCompleted === true && sign !== "") {
+  if (
+    e.target.classList.contains("digit") &&
+    aIsCompleted === true &&
+    sign !== "" &&
+    b === ""
+  ) {
     b += e.target.textContent;
     dispayText.textContent = a + sign + b;
     console.log(a + sign + b);
@@ -91,7 +96,12 @@ function populateValue(e) {
     playSound(e.target.className);
   }
 
-  if (e.target.classList.contains("math") && a != "" && result === undefined && b != "") {
+  if (
+    e.target.classList.contains("math") &&
+    a != "" &&
+    result === undefined &&
+    b != ""
+  ) {
     showSnackbar("Only 2 values at one operation");
     b = "";
     playSound(e.target.className);
