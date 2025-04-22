@@ -10,19 +10,19 @@ let b = "";
 
 let sign = "";
 let aIsCompleted = false;
-let result;
+let result = undefined;
 
-function playSound(targetID) {
-  if (targetID === "equal") {
+function playSound(targetClassName) {
+  if (targetClassName === "equal") {
     successSound.currentTime = 0; // rewind to start
     successSound.play();
   }
-  if (targetID === "math" || targetID === "digit") {
+  if (targetClassName === "math" || targetClassName === "digit") {
     btnClickSound.currentTime = 0; // rewind to start
     btnClickSound.play();
   }
 
-  if (targetID === "clearBtn") {
+  if (targetClassName === "clearBtn") {
     btnReset.currentTime = 0;
     btnReset.play();
   }
@@ -30,7 +30,7 @@ function playSound(targetID) {
 
 function populateValue(e) {
   if (
-    e.target.matches("#digit") &&
+    e.target.classList.contains("digit") &&
     aIsCompleted === false &&
     result === undefined &&
     sign === "" &&
@@ -39,48 +39,48 @@ function populateValue(e) {
     a += e.target.textContent;
     dispayText.textContent = a;
     console.log(a);
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
-  if (e.target.matches("#math")) {
+  if (e.target.classList.contains("math")) {
     aIsCompleted = true;
     sign = e.target.textContent;
     dispayText.textContent = a + sign;
     console.log(sign);
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
-  if (e.target.matches("#digit") && aIsCompleted === true && sign !== "") {
+  if (e.target.classList.contains("digit") && aIsCompleted === true && sign !== "") {
     b += e.target.textContent;
     dispayText.textContent = a + sign + b;
     console.log(a + sign + b);
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
   if (
-    e.target.matches("#equal") &&
+    e.target.classList.contains("equal") &&
     aIsCompleted === true &&
     sign != "" &&
     b != ""
   ) {
     operate(a, sign, b);
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
 
-  if (e.target.matches("#equal") && aIsCompleted === false) {
-    showSnackbar();
+  if (e.target.classList.contains("equal") && aIsCompleted === false) {
+    showSnackbar("Choose math sign");
   }
 
-  if (e.target.matches("#clearBtn")) {
+  if (e.target.classList.contains("clearBtn")) {
     a = "";
     b = "";
     sign = "";
     aIsCompleted = false;
     result;
     dispayText.textContent = "Put a number";
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
 
   //next code for round 2+
   if (
-    e.target.matches("#digit") &&
+    e.target.classList.contains("digit") &&
     result != undefined &&
     sign === "" &&
     b === "" &&
@@ -88,30 +88,20 @@ function populateValue(e) {
   ) {
     a += e.target.textContent;
     dispayText.textContent = a;
-
-    console.log("next round");
-    playSound(e.target.id);
+    playSound(e.target.className);
   }
 
-  if (
-    e.target.matches("#math") &&
-    a === "" &&
-    result != undefined &&
-    b === ""
-  ) {
-    a = result;
-    aIsCompleted = true;
-    sign = e.target.textContent;
-    dispayText.textContent = a + sign;
-    console.log(sign, "round with sum of result success");
-    playSound(e.target.id);
+  if (e.target.classList.contains("math") && a != "" && result === undefined && b != "") {
+    showSnackbar("Only 2 values at one operation");
+    b = "";
+    playSound(e.target.className);
   }
 }
 
-function operate(aValue, signValue, bValue) {
-  switch (signValue) {
+function operate(firstOperand, operator, secondOperand) {
+  switch (operator) {
     case "÷":
-      result = Number(aValue) / Number(bValue);
+      result = Number(firstOperand) / Number(secondOperand);
       dispayText.textContent = result;
       a = "";
       b = "";
@@ -119,7 +109,7 @@ function operate(aValue, signValue, bValue) {
       break;
 
     case "+":
-      result = Number(aValue) + Number(bValue);
+      result = Number(firstOperand) + Number(secondOperand);
       dispayText.textContent = result;
       a = "";
       b = "";
@@ -127,7 +117,7 @@ function operate(aValue, signValue, bValue) {
       console.log(result);
       break;
     case "×":
-      result = Number(aValue) * Number(bValue);
+      result = Number(firstOperand) * Number(secondOperand);
       dispayText.textContent = result;
       a = "";
       b = "";
@@ -135,7 +125,7 @@ function operate(aValue, signValue, bValue) {
       console.log(result);
       break;
     case "-":
-      result = Number(aValue) - Number(bValue);
+      result = Number(firstOperand) - Number(secondOperand);
       dispayText.textContent = result;
       a = "";
       b = "";
@@ -145,10 +135,10 @@ function operate(aValue, signValue, bValue) {
   }
 }
 
-function showSnackbar() {
+function showSnackbar(value) {
   const snackbar = document.querySelector("#snackbar");
   snackbar.className = "show";
-  snackbar.textContent = "Choose sign!";
+  snackbar.textContent = value;
   setTimeout(function () {
     snackbar.className = snackbar.className.replace("show", "");
   }, 3000);
